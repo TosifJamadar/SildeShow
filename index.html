@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sildeshow</title>
+    <style>
+        .containers{
+            width: fit-content;
+            margin: 50px auto;
+            position: relative;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+        .Slideshow{
+            height: 400px;
+            width: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .action{
+            height: 40px;
+            position: absolute;
+            top: 40%;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .icon-prev{
+            left: 0;
+        }
+        .icon-prev:hover{
+            transform: scale(0.8) translateX(-10px);
+        }
+        .icon-next{
+            right: 0;   
+        }
+        .icon-next:hover{
+            transform: scale(0.8) translateX(10px);
+        }
+        .text{
+            text-align: center;
+            color: maroon;
+            text-shadow: 2px 2px 2px rgb(87, 84, 84);
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text">Silde show</h1>
+    <div class="containers">
+        <img src="lion.png" alt="" class="silde" id="Slideshow">
+        <img src="left.png" alt="" class="action icon-prev" onclick="previous()"/>
+        <img src="right.png" alt="" class=" action icon-next" onclick="next()"/>
+    </div>
+
+    <script>
+        const images = ["bear.png","elephant (1).png","fox.png","graphic.png","lion.png"];
+        let index = 0;
+        const slide = document.getElementById('Slideshow');
+            function next(){
+                if(index < images.length -1){
+                    index++;
+                }
+                else{
+                    index = 0;
+                }
+                 index++;
+                 slide.src = images[index]; 
+            }
+
+            function previous(){
+                if(index > 0){
+                    index--;
+                }
+                else{
+                    index = images.length -1;
+                }
+                 slide.src = images[index];
+            }
+           /* setInterval(next, 1000);*/
+
+    </script>
+</body>
+</html>
